@@ -3,8 +3,71 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Media List</title>
+
+	<link rel="stylesheet" href="bootstrap.min.css">
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="style.css">
+
+	<script src="jquery-2.1.4.min.js" type="text/javascript"></script>
+	<script src="bootstrap.min.js" type="text/javascript"></script>
+	<script src="lodash.min.js" type="text/javascript"></script>
+	<script src="readJson.js" type="text/javascript"></script>
+	<script src="index.js" type="text/javascript"></script>
+
+	<script type="text/template" id="media-template">
+		<% for (var item in data) { %>
+			<button type="button" class="btn btn-info btn-lg media-button" data-toggle="modal" data-target="#<%- item %>"><%= getIcon(data[item]) %><br><%- data[item].name %></button>
+			<div id="<%- item %>" class="modal fade" role="dialog">
+				<div class="modal-dialog">
+
+				    <!-- Modal content-->
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal">&times;</button>
+				        <h4 class="modal-title"><%- data[item].name %></h4>
+				      </div>
+				      <div class="modal-body">
+				        <%= showTemplate(data[item]) %>
+				      </div>
+				    </div>
+
+				</div>
+			</div>
+		<% } %> 
+
+
+	</script>
+
+	<script type="text/template" id="image-template">
+
+		<img src="media/<%- data %>" class="image">
+
+	</script>
+
+	<script type="text/template" id="audio-template">
+
+		<audio controls>
+			<source src="media/<%- data %>" type="audio/mpeg">
+		</audio>
+
+	</script>
+	
+	<script type="text/template" id="video-template">
+	
+		<video width="320" height="240" controls>
+		  	<source src="media/<%- data %>" type="video/mp4">
+		</video>
+
+	</script>
+	
+	<script type="text/template" id="error-template">
+
+		<p class="error">Sorry, but this extension not supported</p>
+
+	</script>
+
 </head>
 <body>
-	
+
 </body>
 </html>

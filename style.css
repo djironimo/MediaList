@@ -1,0 +1,27 @@
+.image {
+	width: 100%;
+	height: auto;
+}
+
+audio {
+	display: table;
+	width: 300px;
+	margin: 0 auto;
+}
+
+video {
+	display: table;
+	width: 320px;
+	margin: 0 auto;
+}
+
+.ico {
+	margin-bottom: 20px;
+	font-size: 110px;
+}
+
+.media-button {
+	width: 200px;
+	min-height: 200px;
+	margin: 10px 0 0 10px;
+}
