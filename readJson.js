@@ -1,5 +1,15 @@
 function readJson () {
-    json =  {
+    var json = "";
+var jqxhr = $.getJSON( "media.json", function() {
+  console.log( "success" );
+})
+  .done(function() {
+    console.log( "second success" );
+    console.log(jqxhr.responseText);
+    json = $.parseJSON(jqxhr.responseText);
+  })
+  .fail(function() {
+    json = {
             "array": [          
                 {
                   "name": "picture_1.jpg",
@@ -27,7 +37,7 @@ function readJson () {
                 }
             ]
         };
-
+    });
     return json;
 }
 

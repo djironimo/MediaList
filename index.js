@@ -1,10 +1,10 @@
 $(document).ready(function () {
 	var template = $("#media-template").html();
+	var json = readJson().array;
 	var	compiled_html = _.template(template)({
-			data: readJson().array
+			data: json
 		});
 	$("body").append(compiled_html);
-
 });
 
 var imageID="#image-template";
